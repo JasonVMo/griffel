@@ -1,0 +1,16 @@
+{
+  "name": "@griffel/cssprops-to-native-style",
+  "version": "0.1.0",
+  "description": "Utilities for converting CSS props to native style objects",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/griffel"
+  },
+  "sideEffects": false,
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.71.0"
+  }
+}

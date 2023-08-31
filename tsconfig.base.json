@@ -17,6 +17,7 @@
     "paths": {
       "@griffel/babel-preset": ["packages/babel-preset/src/index.ts"],
       "@griffel/core": ["packages/core/src/index.ts"],
+      "@griffel/cssprops-to-native-style": ["packages/cssprops-to-native-style/src/index.ts"],
       "@griffel/devtools": ["packages/devtools/src/index.ts"],
       "@griffel/e2e-utils": ["e2e/utils/src/index.ts"],
       "@griffel/eslint-plugin": ["packages/eslint-plugin/src/index.ts"],

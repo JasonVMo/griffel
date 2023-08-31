@@ -1,0 +1,109 @@
+{
+  "name": "@griffel/cssprops-to-native-style",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/cssprops-to-native-style/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "buildableProjectDepsInPackageJsonType": "dependencies",
+        "outputPath": "dist/packages/cssprops-to-native-style",
+        "tsConfig": "packages/cssprops-to-native-style/tsconfig.lib.json",
+        "project": "packages/cssprops-to-native-style/package.json",
+        "entryFile": "packages/cssprops-to-native-style/src/index.ts",
+        "compiler": "babel",
+        "rollupConfig": ["@nrwl/react/plugins/bundle-rollup", "tools/getRollupOptions.js"],
+        "updateBuildableProjectDepsInPackageJson": false,
+        "external": ["tslib"],
+        "format": ["esm", "cjs"],
+        "skipTypeField": true,
+        "assets": [
+          {
+            "glob": "packages/cssprops-to-native-style/README.md",
+            "input": ".",
+            "output": "."
+          },
+          {
+            "glob": "LICENSE.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cssprops-to-native-style/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/cssprops-to-native-style"],
+      "options": {
+        "jestConfig": "packages/cssprops-to-native-style/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "bundle-size": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ],
+      "options": {
+        "cwd": "packages/cssprops-to-native-style",
+        "commands": [
+          {
+            "command": "monosize measure"
+          }
+        ]
+      }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/react",
+        "port": 4400,
+        "config": {
+          "configFolder": "packages/cssprops-to-native-style/.storybook"
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "uiFramework": "@storybook/react",
+        "outputPath": "dist/storybook/@griffel/cssprops-to-native-style",
+        "config": {
+          "configFolder": "packages/cssprops-to-native-style/.storybook"
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "type-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/cssprops-to-native-style",
+        "commands": [{ "command": "tsc -b --pretty" }],
+        "outputPath": []
+      }
+    }
+  }
+}

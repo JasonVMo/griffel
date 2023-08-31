@@ -4,6 +4,7 @@
     "@griffel/babel-preset": "packages/babel-preset",
     "@griffel/benchmark": "apps/benchmark",
     "@griffel/core": "packages/core",
+    "@griffel/cssprops-to-native-style": "packages/cssprops-to-native-style",
     "@griffel/devtools": "packages/devtools",
     "@griffel/e2e-nextjs": "e2e/nextjs",
     "@griffel/e2e-typescript": "e2e/typescript",
