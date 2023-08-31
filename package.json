@@ -119,6 +119,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-fela": "12.2.0",
+    "react-native": "^0.72.4",
     "react-refresh": "^0.10.0",
     "react-shadow": "^20.2.0",
     "react-test-renderer": "18.0.0",
