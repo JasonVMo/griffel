@@ -12,5 +12,8 @@ describe('css variable parsing', () => {
     runParseTest('var(--testvar, 10px)', 'testvar', '10px');
     runParseTest('var(--test-var)', 'test-var', undefined);
     runParseTest('var(bad--input)', undefined, undefined);
+    runParseTest('var(--testMulti, multi word param)', 'testMulti', 'multi word param');
+    runParseTest('var(--testUnfinished', undefined, undefined);
+    runParseTest('var(--embedded, var(--embeddedVar))', 'embedded', 'var(--embeddedVar)');
   });
 });
